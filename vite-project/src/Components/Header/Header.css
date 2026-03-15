@@ -1,0 +1,114 @@
+/* الحاوية الرئيسية للهيدر */
+.main-header-neo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* العنصر السحري لضمان وجود الجميع على نفس الخط */
+  padding: 10px 30px;
+  background: #ffffff;
+  /* نمط غائر موحد للهيدر */
+  box-shadow: inset 2px 2px 6px #e0e0e0, inset -2px -2px 6px #ffffff;
+  border-radius: 40px;
+  margin: 20px;
+  border: .2px solid #f0f0f0;
+  height: 65px; /* ارتفاع ثابت لضمان استقرار العناصر */
+  box-sizing: border-box;
+}
+
+/* الأقسام الثلاثة */
+.header-section {
+  display: flex;
+  align-items: center; /* تأكيد المحاذاة داخل كل قسم */
+  height: 100%;
+}
+
+.logo-section { flex: 1; justify-content: flex-start; }
+.search-section { flex: 2; justify-content: center; }
+.profile-section { flex: 1; justify-content: flex-end; gap: 15px; }
+
+/* 1. الشعار (اليمين) - نمط غائر */
+.logo-link {
+   margin-left: 10px;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 10px;
+}
+
+.logo-icon-neo {
+  width: 35px; height: 35px;
+  background: #555d4d;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: white; font-weight: bold;
+  box-shadow: inset 2px 2px 5px #3a4035, inset -2px -2px 5px #7a8a70;
+
+}
+
+.logo-text-neo {
+    color: #555d4d;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+/* 2. البحث (الوسط) - نمط بارز */
+.search-wrapper-neo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 350px;
+}
+
+.search-input-neo {
+  width: 100%;
+  padding: 10px 15px 10px 40px;
+  border-radius: 25px;
+  background: #ffffff;
+  border: 1px solid #d1d1d1;
+  /* نمط بارز (خارجي) */
+  box-shadow: 4px 4px 8px #eeeeee, -4px -4px 8px #ffffff;
+  outline: none;
+  color: #555d4d;
+  height: 40px;
+  box-sizing: border-box;
+}
+
+.search-icon-neo {
+  position: absolute; 
+  right: 20px;
+  color: #D8D9DB;
+}
+
+/* 3. البروفايل والتنبيه (اليسار) - نمط بارز */
+.user-profile-neo {
+  display: flex; align-items: center; gap: 8px;
+  cursor: pointer;
+  background: #ffffff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  border: 1px solid #d1d1d1;
+  box-shadow: 4px 4px 8px #eeeeee, -4px -4px 8px #ffffff;
+  color: #555d4d; font-weight: 500;
+  height: 40px;
+  margin-: 10px;
+}
+
+.notification-btn-neo {
+  width: 40px; height: 40px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 1px solid #d1d1d1;
+  box-shadow: 4px 4px 8px #eeeeee, -4px -4px 8px #ffffff;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+}
+
+/* القائمة المنسدلة */
+.dropdown-menu-neo {
+  position: absolute; top: 70px; right: 40px;
+  background: #ffffff;
+  border: 1px solid #d1d1d1;
+  border-radius: 15px; padding: 10px; width: 140px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  z-index: 1000;
+}

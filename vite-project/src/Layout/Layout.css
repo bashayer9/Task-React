@@ -1,0 +1,44 @@
+/* Layout.css */
+.layout-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #fcfcfc; /* خلفية خفيفة جداً لتبرز الظلال */
+}
+
+.main-content {
+  display: flex;
+  flex: 1;
+  padding: 0 10px 20px 10px;
+}
+
+.sidebar-container {
+  width: 260px; /* العرض المناسب للسايد بار */
+  flex-shrink: 0;
+}
+
+.content-area {
+  flex: 1;
+  padding: 20px;
+  /* إضافة تأثير بسيط للمحتوى ليتماشى مع النمط */
+  background: #ffffff;
+  border-radius: 40px;
+  margin: 10px;
+  box-shadow: inset 2px 2px 6px #e0e0e0, inset -2px -2px 6px #ffffff;
+  border: 1px solid #d1d1d1;
+}
+
+.sidebar-container-neo {
+  width: 260px;
+  background: #ffffff;
+  box-shadow: inset 2px 2px 6px #e0e0e0, inset -2px -2px 6px #ffffff;
+  border-radius: 40px;
+  border: 0.2px solid #f0f0f0;
+  margin: 20px;
+  padding: 20px; /* زيادة المساحة الداخلية للروابط */
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  height: calc(100vh - 100px); /* ليناسب طول الشاشة */
+}

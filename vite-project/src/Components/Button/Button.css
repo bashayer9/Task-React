@@ -1,0 +1,48 @@
+/* التنسيق الافتراضي (الزيتوني) */
+.main-btn.primary {
+  background-color: #555d4d;
+  color: white;
+  border: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  width: 40%;
+
+  
+}
+/* التنسيق الجديد (الرمادي بحدود) الذي تحتاجه للصورة الأخيرة */
+.main-btn.secondary {
+  background-color: transparent; /* خلفية شفافة */
+  color: #555d4d;                /* لون النص */
+  border: 1px solid #d1d1d1;      /* الحدود */
+  box-shadow: none;  
+    font-weight: 500;
+}
+
+
+/* تنسيق الحالة المعطلة Disabled */
+.main-btn.disabled {
+    background-color: #e0e0e0 !important; /* لون رمادي باهت */
+    color: #a0a0a0 !important;
+    border: none !important;
+    cursor: not-allowed; /* يغير شكل الماوس لعلامة المنع */
+    box-shadow: none !important;
+    transform: none !important; /* يمنع أي حركة عند الضغط */
+}
+
+/* اختياري: إضافة حركة بسيطة للودينق */
+.main-btn.loading {
+    opacity: 0.8;
+    cursor: wait;
+}
+
+/* التنسيق المشترك لكل الأزرار */
+.main-btn {
+  width: 60%;
+  padding: 12px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin: 15px auto;
+  display: block;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
