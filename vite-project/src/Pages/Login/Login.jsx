@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React from 'react'; // حذفنا useState لأننا لم نعد بحاجة لإدارة الحالة يدوياً
 import { useNavigate } from 'react-router-dom';
-import FormModel from '../../Components/FormModel/FormModel';
+// إضافة المكتبات الجديدة مع الحفاظ على الـ imports الأصلية
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { loginSchema } from './LoginSchema.js'; 
+
+import FormModel from '../../Components/FormModel/FormModel.jsx';
 import Input from '../../Components/Input/Input';
 import Button from '../../Components/Button/Button';
 import { FiUser, FiLock } from 'react-icons/fi';
+import styles from './Login.module.css'; 
 
 const Login = () => {
   const navigate = useNavigate();
 
-  // تعريف حالات الإدخال
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  // إعداد React Hook Form بدلاً من useState
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(loginSchema),
+  });
 
-  const handleLogin = () => {
-    // منطق التحقق البسيط
-    if (username === "admin" && password === "123456") {
+  // دالة تسجيل الدخول تستقبل "data" التي تحتوي على username و password تلقائياً
+  const handleLogin = (data) => {
+    if (data.username === "admin" && data.password === "123456") {
       localStorage.setItem('token', 'fake-jwt-token');
       navigate('/dashboard');
     } else {
@@ -23,37 +34,44 @@ const Login = () => {
   };
 
   return (
-    <FormModel title="Welcom Back" subtitle="Login to access your account">
+    <FormModel title="Welcome Back" subtitle="Login to access your account">
       
-      {/* ربط حقول الإدخال بالـ State */}
-      <Input 
-        label="Username" 
-        icon={FiUser} 
-        placeholder="Username" 
-        type="text" 
-        value={username} 
-        onChange={(e) => setUsername(e.target.value)} 
-      />
+      <div className={styles['input-wrapper']}>
+        <Input 
+          label="Username" 
+          icon={FiUser} 
+          placeholder="Enter your username" 
+          type="text" 
+          {...register("username")} // الربط مع السكيما
+        />
+        {/* عرض رسالة الخطأ تحت الحقل مباشرة */}
+        {errors.username && <p className={styles.error}>{errors.username.message}</p>}
+      </div>
       
-      <Input 
-        label="Password" 
-        icon={FiLock} 
-        placeholder="Password" 
-        type="password" 
-        value={password} 
-        onChange={(e) => setPassword(e.target.value)} 
-      />
+      <div className={styles['input-wrapper']}>
+        <Input 
+          label="Password" 
+          icon={FiLock} 
+          placeholder="Enter your password" 
+          type="password" 
+          {...register("password")} // الربط مع السكيما
+        />
+        {errors.password && <p className={styles.error}>{errors.password.message}</p>}
+      </div>
 
-      {/* زر تسجيل الدخول */}
-      <Button text="Submit" onClick={handleLogin} />
+      {/* نستخدم handleSubmit لتغليف الدالة الأساسية */}
+      <Button text="Submit" onClick={handleSubmit(handleLogin)} variant="primary" />
 
-      {/* جزء التسجيل */}
-      <p>Don't have an account? Create account</p>
-      <Button 
-        text="Sign up" 
-        variant="primary" 
-        onClick={() => navigate('/register')} 
-      />
+      <p className={styles['footer-text']}>
+        Don't have an account? {' '}
+        <span 
+          className={styles.link} 
+          onClick={() => navigate('/register')}
+        >
+          Create account
+        </span>
+      </p>
+
     </FormModel>
   );
 };

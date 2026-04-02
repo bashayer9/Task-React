@@ -1,17 +1,16 @@
 .form-container {
-  background-color: #f2f3f1; /* لون الخلفية العام */
+  background-color: #f2f3f1; 
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 10px;
 }
 
 .form-card {
   background: #ffffff;
   padding: 20px 30px;
-  border-radius: 50px; /* الحواف المنحنية جداً */
+  border-radius: 50px; 
   box-shadow: 20px 20px 60px #ced0cd, -20px -20px 60px #ffffff;
   width: 80%;
   max-width: 400px;
@@ -22,9 +21,8 @@
   color: #555d4d;
   font-size: 1.3rem;
   margin-bottom: 20px;
-      font-weight: 500;
-      margin-top: 20px;
-
+  font-weight: 500;
+  margin-top: 20px;
 }
 
 .form-subtitle {
@@ -35,7 +33,9 @@
   font-weight: 400;
   font-size: .80rem;
 }
-p{
+
+/* تنسيق أي فقرة نصية داخل الـ Model */
+.form-card p {
   padding: 5px 25px;
   border-radius: 20px;
   color: #555d4d;

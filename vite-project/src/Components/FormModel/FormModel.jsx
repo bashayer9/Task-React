@@ -1,18 +1,18 @@
 import React from 'react';
-import './FormModel.css';
+import styles from './FormModel.module.css'; // تأكد أن اسم ملف الـ CSS يطابق هذا الاسم
 
 const FormModel = ({ title, subtitle, children }) => {
   return (
-    <div className="form-container">
-      <div className="form-card">
-        {/* العنوان الرئيسي مثل Welcom! */}
-        <h1 className="form-title">{title}</h1>
+    <div className={styles['form-container']}>
+      <div className={styles['form-card']}>
+        {/* العنوان الرئيسي */}
+        <h1 className={styles['form-title']}>{title}</h1>
         
-        {/* النص الفرعي مثل Sign In */}
-        {subtitle && <div className="form-subtitle">{subtitle}</div>}
+        {/* النص الفرعي */}
+        {subtitle && <div className={styles['form-subtitle']}>{subtitle}</div>}
 
-        {/* هنا سيتم عرض الحقول والأزرار التي نمررها للمكون */}
-        <div className="form-content">
+        {/* محتوى النموذج (الحقول والأزرار) */}
+        <div className={styles['form-content']}>
           {children}
         </div>
       </div>

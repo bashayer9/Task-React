@@ -5,53 +5,52 @@
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-
+  padding: 20px;
 }
 
 .menu-label {
-  font-size: 1.5rem;
+  font-size: 1.2rem; /* تم تصغيره قليلاً ليتناسب مع الهيدر */
   color: #555d4d;
   margin-bottom: 15px;
   font-weight: 600;
   padding-left: 10px;
-  padding-bottom: 30px;
-  
+  padding-bottom: 20px;
 }
 
 .menu-item {
   display: flex;
   align-items: center;
   padding: 12px 15px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.3s ease;
   color: #555d4d;
   font-weight: 500;
   text-decoration: none;
-  padding-bottom: 20px;
 }
 
 .menu-item:hover {
   background: #f4f3f3;
 }
 
-.menu-item.active {
+/* كلاس الحالة النشطة */
+.active {
   background: #e8e8e8;
-  font-weight: 700;
+  font-weight: 700 !important;
   color: #555d4d;
+  box-shadow: inset 2px 2px 5px #d1d1d1, inset -2px -2px 5px #ffffff;
 }
 
 .icon {
   margin-right: 15px;
-  margin-left: 15px;
+  margin-left: 5px;
+  font-size: 1.2rem;
 }
+
 .sign-out-container {
-  flex: 1;
-  overflow: auto;
   padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
-
-
-
-

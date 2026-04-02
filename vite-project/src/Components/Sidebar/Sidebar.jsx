@@ -2,27 +2,51 @@ import React from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { FiHome, FiShoppingBag, FiMenu, FiStar, FiSettings, FiCreditCard, FiUser, FiHelpCircle } from 'react-icons/fi';
 import Button from '../Button/Button';
-import './Sidebar.css';
+import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
   const navigate = useNavigate();
 
+  // مصفوفة لتسهيل كتابة الروابط وتقليل تكرار الكود
+  const menuLinks = [
+    { to: "/dashboard", icon: FiHome, text: "Dashboard" },
+    { to: "/orders", icon: FiShoppingBag, text: "Food Order" },
+    { to: "/menu", icon: FiMenu, text: "Manage Menu" },
+    { to: "/reviews", icon: FiStar, text: "Customer Review" },
+    { to: "/settings", icon: FiSettings, text: "Settings" },
+    { to: "/payment", icon: FiCreditCard, text: "Payment" },
+    { to: "/accounts", icon: FiUser, text: "Accounts" },
+    { to: "/help", icon: FiHelpCircle, text: "Help" },
+  ];
+
   return (
-    <div className="sidebar-neo">
+    <div className={styles['sidebar-neo']}>
       <div>
-        <p className="menu-label">MENU</p>
-        <NavLink to="/dashboard" className="menu-item"><FiHome className="icon" /> Dashboard</NavLink>
-        <NavLink to="/orders" className="menu-item"><FiShoppingBag className="icon" /> Food Order</NavLink>
-        <NavLink to="/menu" className="menu-item"><FiMenu className="icon" /> Manage Menu</NavLink>
-        <NavLink to="/reviews" className="menu-item"><FiStar className="icon" /> Customer Review</NavLink>
-        <NavLink to="/settings" className="menu-item"><FiSettings className="icon" /> Settings</NavLink>
-        <NavLink to="/payment" className="menu-item"><FiCreditCard className="icon" /> Payment</NavLink>
-        <NavLink to="/accounts" className="menu-item"><FiUser className="icon" /> Accounts</NavLink>
-        <NavLink to="/help" className="menu-item"><FiHelpCircle className="icon" /> Help</NavLink>
+        <p className={styles['menu-label']}>MENU</p>
+        
+        {menuLinks.map((link) => (
+          <NavLink 
+            key={link.to}
+            to={link.to} 
+            className={({ isActive }) => 
+              `${styles['menu-item']} ${isActive ? styles.active : ''}`
+            }
+          >
+            <link.icon className={styles.icon} /> 
+            {link.text}
+          </NavLink>
+        ))}
       </div>
 
-      <div className="sign-out-container">
-        <Button text="Sign Out" onClick={() => navigate('/login')} variant="primary" />
+      <div className={styles['sign-out-container']}>
+        <Button 
+          text="Sign Out" 
+          onClick={() => {
+            localStorage.removeItem('token');
+            navigate('/login');
+          }} 
+          variant="primary" 
+        />
       </div>
     </div>
   );

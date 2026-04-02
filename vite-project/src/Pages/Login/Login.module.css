@@ -1,0 +1,20 @@
+/* النص الكامل أسفل النموذج */
+.footer-text {
+  color: #555d4d;
+  font-size: 0.85rem;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* الرابط (Create account) */
+.link {
+  color: #555d4d;
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline; /* أو wavy كما كنتِ ترغبين */
+  transition: opacity 0.2s;
+}
+
+.link:hover {
+  opacity: 0.7;
+}

@@ -1,0 +1,32 @@
+/* التنسيق المشترك */
+.main-btn {
+  width: 60%;
+  padding: 12px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin: 15px auto;
+  display: block;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+/* التنسيق الافتراضي */
+.primary {
+  background-color: #555d4d;
+  color: white;
+  border: none;
+  font-weight: 500;
+}
+
+/* التنسيق الرمادي */
+.secondary {
+  background-color: transparent;
+  color: #555d4d;
+  border: 1px solid #d1d1d1;
+}
+
+.disabled {
+    background-color: #e0e0e0 !important;
+    color: #a0a0a0 !important;
+    cursor: not-allowed;
+}

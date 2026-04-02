@@ -1,0 +1,66 @@
+/* الحاوية الخارجية */
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* تنسيق الليبل */
+.custom-label {
+  align-self: flex-start;
+  width: 80%;
+  margin: 0 auto 10px auto;
+  font-size: 0.60rem;
+  color: #555d4d;
+  font-weight: 500;
+  padding-left: 15px;
+  text-align: left;
+}
+
+.input-group {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 55px;
+  color: #D8D9DB;
+  z-index: 15;
+}
+
+/* حقل الإدخال بتنسيق النيومورفيزم */
+.neo-input {
+  width: 80%;
+  padding: 12px 12px 12px 45px;
+  border-radius: 30px;
+  border: none;
+  background: #ffffff;
+  box-shadow: inset -2px -2px 8px #e0e0e0, inset 2px 2px 8px #ffffff;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.neo-input::placeholder {
+  color: #D8D9DB;
+  font-size: 0.7rem; /* كبرته قليلاً للوضوح */
+  font-weight: 500;
+}
+
+/* حالة الخطأ */
+.error-border {
+  border: 1px solid #ff4d4d !important;
+}
+
+.error-message {
+  color: #ff4d4d;
+  font-size: 0.65rem;
+  margin-top: 5px;
+  width: 80%;
+  text-align: left;
+}

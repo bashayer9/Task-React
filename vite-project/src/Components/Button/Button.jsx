@@ -1,18 +1,18 @@
 import React from 'react';
-import './Button.css';
+import styles from './Button.module.css'; // استيراد styles ككائن
 
-const Button = ({ text, onClick, type = "button", variant = "primary", secondary, disabled, loading }) => {
+const Button = ({ text, onClick, type = "button", variant = "primary", disabled, loading }) => {
   return (
     <button
-      className={`main-btn ${variant} ${disabled || loading ? 'disabled' : ''}`}
+      // الوصول للكلاسات عن طريق الكائن styles
+      className={`${styles['main-btn']} ${styles[variant]} ${disabled || loading ? styles.disabled : ''}`}
       type={type}
       onClick={onClick}
-      disabled={disabled || loading} // يمنع النقر برمجياً
+      disabled={disabled || loading}
     >
       {loading ? "Loading..." : text} 
     </button>
   );
 };
-
 
 export default Button;
